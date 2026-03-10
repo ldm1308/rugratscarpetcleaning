@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rug Rats Carpet Cleaning — Meridian, ID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F8F4EE;
+    --warm-white: #FDFAF5;
+    --deep-navy: #1A2332;
+    --navy: #243147;
+    --gold: #C9973A;
+    --gold-light: #E5B96A;
+    --rust: #8B3A2A;
+    --sage: #5C6E5A;
+    --text: #2E2E2E;
+    --text-light: #6B6B6B;
+    --border: #E0D8CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ───── NAV ───── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 60px;
+    background: rgba(26, 35, 50, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .nav-logo span { display: block; font-size: 0.65rem; color: rgba(255,255,255,0.5); font-family: 'Lato', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--deep-navy) !important;
+    padding: 10px 24px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--deep-navy) !important; }
+
+  /* ───── HERO ───── */
+  #hero {
+    min-height: 100vh;
+    background: var(--deep-navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-texture {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,151,58,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(92,110,90,0.12) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,151,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,151,58,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 140px 60px 100px;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 32px; font-weight: 400;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 52px;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--deep-navy);
+    padding: 16px 40px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+    padding: 16px 40px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-badge {
+    position: absolute; right: 80px; bottom: 80px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,151,58,0.4);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--gold);
+    text-align: center;
+  }
+  .hero-badge .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .hero-badge .label {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+
+  /* ───── TRUST BAR ───── */
+  .trust-bar {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 60px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 60px; flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+    color: var(--navy);
+  }
+  .trust-icon {
+    width: 36px; height: 36px;
+    background: var(--deep-navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  /* ───── SECTION COMMONS ───── */
+  section { padding: 120px 60px; }
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--gold); }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 700;
+    color: var(--deep-navy);
+    line-height: 1.15;
+  }
+  .lead {
+    font-size: 1.05rem; color: var(--text-light); line-height: 1.85; font-weight: 300;
+    max-width: 560px;
+  }
+
+  /* ───── ABOUT ───── */
+  #about { background: var(--warm-white); }
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-photo-frame {
+    background: var(--deep-navy);
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,151,58,0.15) 0%, transparent 60%);
+  }
+  .about-photo-inner {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(201,151,58,0.15);
+    font-style: italic;
+    user-select: none;
+  }
+  .about-accent-box {
+    position: absolute;
+    bottom: -30px; right: -30px;
+    background: var(--gold);
+    padding: 30px 36px;
+    color: var(--deep-navy);
+  }
+  .about-accent-box .big { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; display: block; }
+  .about-accent-box .small { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+  .about-text h2 { margin-bottom: 24px; }
+  .about-text .lead { margin-bottom: 32px; }
+  .about-text p { color: var(--text-light); line-height: 1.85; font-size: 0.97rem; margin-bottom: 20px; }
+  .signature {
+    margin-top: 36px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--gold);
+  }
+  .sig-label { font-family: 'Lato', sans-serif; font-style: normal; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-top: 4px; }
+
+  /* ───── SERVICES ───── */
+  #services { background: var(--deep-navy); }
+  #services .section-label { color: var(--gold-light); }
+  #services h2 { color: #fff; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 64px; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 52px 40px;
+    transition: background 0.3s, transform 0.3s;
+    cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { background: rgba(201,151,58,0.06); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    font-size: 2.2rem; margin-bottom: 28px;
+    display: block;
+  }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 700;
+    color: #fff; margin-bottom: 16px;
+  }
+  .service-card p { color: rgba(255,255,255,0.5); font-size: 0.93rem; line-height: 1.8; }
+
+  /* ───── WHY US ───── */
+  #why { background: var(--cream); }
+  .why-inner { max-width: 1200px; margin: 0 auto; }
+  .why-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px; align-items: end; }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
+  }
+  .why-item {
+    display: flex; gap: 24px; align-items: flex-start;
+  }
+  .why-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900;
+    color: var(--border);
+    line-height: 1; flex-shrink: 0;
+    width: 60px;
+    transition: color 0.3s;
+  }
+  .why-item:hover .why-num { color: var(--gold); }
+  .why-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--deep-navy); margin-bottom: 10px;
+  }
+  .why-item p { color: var(--text-light); font-size: 0.92rem; line-height: 1.75; }
+
+  /* ───── REVIEWS ───── */
+  #reviews { background: var(--warm-white); }
+  .reviews-header { max-width: 1200px; margin: 0 auto 64px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 4px; margin-bottom: 10px; }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .review-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 40px 36px;
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .review-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.08); transform: translateY(-4px); }
+  .review-card::before {
+    content: '\201C';
+    position: absolute; top: 24px; right: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; line-height: 1;
+    color: var(--gold); opacity: 0.25;
+  }
+  .review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 20px; }
+  .review-text { font-size: 0.97rem; color: var(--text); line-height: 1.85; margin-bottom: 28px; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; }
+  .reviewer { display: flex; align-items: center; gap: 16px; border-top: 1px solid var(--border); padding-top: 24px; }
+  .reviewer-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--deep-navy);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .reviewer-name { font-weight: 700; font-size: 0.88rem; color: var(--deep-navy); }
+  .reviewer-date { font-size: 0.78rem; color: var(--text-light); margin-top: 2px; }
+
+  /* ───── CTA ───── */
+  #cta {
+    background: var(--deep-navy);
+    text-align: center;
+    padding: 140px 60px;
+    position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,151,58,0.1) 0%, transparent 70%);
+  }
+  #cta .section-label { justify-content: center; color: var(--gold-light); }
+  #cta .section-label::after { display: none; }
+  #cta .section-label::before { content: ''; flex: 0 0 40px; height: 1px; background: var(--gold-light); }
+  #cta h2 { color: #fff; margin-bottom: 24px; position: relative; }
+  #cta p { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 520px; margin: 0 auto 52px; line-height: 1.8; position: relative; }
+  .cta-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .phone-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    display: block; margin-bottom: 40px;
+    font-style: italic;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .phone-big:hover { color: var(--gold-light); }
+
+  /* ───── CONTACT / MAP ───── */
+  #contact { background: var(--cream); }
+  .contact-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .contact-info h2 { margin-bottom: 40px; }
+  .contact-block { margin-bottom: 40px; }
+  .contact-block .label-sm {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 8px;
+  }
+  .contact-block p, .contact-block a {
+    font-size: 1rem; color: var(--text); line-height: 1.7;
+    text-decoration: none;
+    display: block;
+  }
+  .contact-block a:hover { color: var(--gold); }
+  .map-container {
+    background: var(--deep-navy);
+    aspect-ratio: 4/3;
+    position: relative; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .map-container iframe {
+    width: 100%; height: 100%; border: none; display: block;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: #0F1720;
+    padding: 60px 60px 40px;
+    border-top: 1px solid rgba(201,151,58,0.2);
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px;
+    max-width: 1200px; margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--gold);
+  }
+  .footer-logo span {
+    display: block; font-family: 'Lato', sans-serif;
+    font-size: 0.65rem; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400;
+  }
+  .footer-links { display: flex; gap: 32px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.45); font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 30px; flex-wrap: wrap; gap: 16px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+  .footer-bottom .gold { color: var(--gold); }
+
+  /* ───── ANIMATIONS ───── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+  .delay-4 { animation-delay: 0.6s; }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 28px; }
+    .nav-links { display: none; }
+    section { padding: 80px 28px; }
+    #hero { min-height: auto; }
+    .hero-content { padding: 120px 28px 80px; }
+    .hero-badge { display: none; }
+    .about-inner, .why-header, .contact-inner { grid-template-columns: 1fr; gap: 50px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .trust-bar { padding: 24px 28px; gap: 28px; }
+    footer { padding: 40px 28px 30px; }
+    .footer-inner, .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .reviews-header { flex-direction: column; }
+    .about-accent-box { bottom: -20px; right: -10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Rug Rats
+    <span>Carpet Cleaning · Meridian, ID</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">Our Story</a>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+12085551234" class="nav-cta">Call Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-texture"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Meridian's Most Trusted Carpet Cleaners</div>
+    <h1 class="fade-up delay-1">Your Carpets,<br><em>Brought Back</em><br>to Life.</h1>
+    <p class="hero-sub fade-up delay-2">Family-owned and operated. Brian and Rachelle have been delivering spotless results and five-star service across the Treasure Valley for over a decade — with the reviews to prove it.</p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#reviews" class="btn-ghost">Read Our Reviews</a>
+    </div>
+  </div>
+  <div class="hero-badge fade-up delay-4">
+    <span class="num">5★</span>
+    <span class="label">Google Rating</span>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">✓</div>
+    Family Owned & Operated
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">⏱</div>
+    10+ Years of Experience
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">💧</div>
+    Deep Steam Cleaning
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">💰</div>
+    Affordable & Transparent Pricing
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">📍</div>
+    Meridian, ID — Locally Based
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-photo-frame">
+        <div class="about-photo-inner">RR</div>
+      </div>
+      <div class="about-accent-box">
+        <span class="big">10+</span>
+        <span class="small">Years of Trust</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">Our Story</div>
+      <h2>Meet Brian &amp; Rachelle</h2>
+      <p class="lead">Rug Rats isn't a faceless franchise — it's a husband-and-wife team who genuinely care about your home.</p>
+      <p>Brian has been perfecting the art of carpet cleaning for over a decade. His meticulous approach, deep technical knowledge, and personal pride in every job are what turn first-time customers into lifetime ones. Rachelle keeps things running seamlessly — from scheduling to communication to making sure every client feels taken care of.</p>
+      <p>Customers consistently say they've tried other companies, come back to Rug Rats, and never left. That loyalty is earned — one spotless carpet at a time.</p>
+      <div class="signature">Brian & Rachelle</div>
+      <div class="sig-label">Owners, Rug Rats Carpet Cleaning</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="section-label">What We Do</div>
+    <h2 style="color:#fff; max-width:500px;">Professional Cleaning for Every Surface in Your Home</h2>
+  </div>
+  <div class="services-grid" style="margin-top:60px;">
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <h3>Residential Carpet Cleaning</h3>
+      <p>Full-home steam cleaning that removes dirt, allergens, and stubborn stains. We've cleaned homes up to 2,100 sq. ft. and left every inch looking — and smelling — brand new.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏢</span>
+      <h3>Commercial Carpet Cleaning</h3>
+      <p>Brian has been trusted with the same businesses for 10+ years. Professional-grade results without disrupting your operations. We work around your schedule.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🪞</span>
+      <h3>Area Rug Cleaning</h3>
+      <p>Your heirloom rugs and area rugs deserve expert care. Customers rave about how bright and vibrant their old rugs look after our thorough, fabric-safe cleaning process.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚿</span>
+      <h3>Stain & Spot Removal</h3>
+      <p>Even the difficult ones. Customers repeatedly mention stains they thought were permanent — gone. Our techniques go deeper than surface cleaning to lift what others leave behind.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✨</span>
+      <h3>Odor Elimination</h3>
+      <p>"The whole house smells amazing." That's what customers say after every job. We neutralize pet odors, musty smells, and general wear — not just mask them.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛡️</span>
+      <h3>Carpet Protection Treatment</h3>
+      <p>After we clean, we can apply a protective coating that repels future stains and extends the life of your carpets. Invest in clean once, protect it for longer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-inner">
+    <div class="why-header">
+      <div>
+        <div class="section-label">Why Rug Rats</div>
+        <h2>What Makes Us Different from Every Other Company</h2>
+      </div>
+      <p class="lead">We've heard it dozens of times: "I tried another company first, then I found Rug Rats — and now I won't use anyone else." Here's why.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div>
+          <h4>Owner-Operated Quality</h4>
+          <p>Brian shows up to every job personally. There's no crew of inconsistent subcontractors — you get the owner's hands and the owner's pride in every visit.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div>
+          <h4>Fair & Transparent Pricing</h4>
+          <p>Customers call our prices "extremely fair," "affordable," and even say Brian should charge more. No surprise fees. No bait-and-switch. Just honest work at honest prices.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div>
+          <h4>Deep, Meticulous Cleaning</h4>
+          <p>We spend hours — not minutes — on your home. Customers note we're "very thorough" and go well beyond what other companies do. This isn't a rush job.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div>
+          <h4>Works Around Your Schedule</h4>
+          <p>We accommodate work schedules, appointments, and family routines. Getting clean carpets shouldn't feel like a hassle — we make it easy from first call to final walkthrough.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-header">
+    <div>
+      <div class="section-label">Customer Reviews</div>
+      <h2>The Words That Mean the Most</h2>
+    </div>
+    <div style="text-align:right;">
+      <div class="stars">★★★★★</div>
+      <p style="font-size:0.82rem; color:var(--text-light); letter-spacing:0.05em;">5.0 · Google Reviews</p>
+    </div>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Had a different company, by mistake, did not compare! Had to have Rug Rats come after that and what a difference! Highly recommend — we have used them several times."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">AJ</div>
+        <div>
+          <div class="reviewer-name">Angie Jacobson</div>
+          <div class="reviewer-date">1 month ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Brian and his team did an excellent job cleaning my parents' carpet. The whole house smells amazing and they were even able to get very difficult stains out. Affordable and professional."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">MS</div>
+        <div>
+          <div class="reviewer-name">Mom S.</div>
+          <div class="reviewer-date">3 years ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Rug Rats is the best! I have been using Brian for 10+ years in my home and business, always a great result. He should charge more for the great work he does."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">MB</div>
+        <div>
+          <div class="reviewer-name">Mark Backhaus</div>
+          <div class="reviewer-date">8 years ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Rug Rats came to our 2,100 sq ft house and did an amazing job on a tough carpet. They spent several hours here and were very thorough. Extremely fairly priced too!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">SR</div>
+        <div>
+          <div class="reviewer-name">Sandy Racine</div>
+          <div class="reviewer-date">5 years ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Great job! My carpets look brand new again. My old area rugs really brightened up! This family-owned business really does a thorough job. Friendly, knowledgeable, and a reasonable price."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">LW</div>
+        <div>
+          <div class="reviewer-name">Linda Williams</div>
+          <div class="reviewer-date">4 years ago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Owner-operator couple that really cares about the quality of their work at a competitive price. Will be using them again and trust their deep knowledge for other recommendations."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">BR</div>
+        <div>
+          <div class="reviewer-name">Baxter Roberson</div>
+          <div class="reviewer-date">5 years ago</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-label">Ready to Get Started?</div>
+  <h2>Your Cleanest Carpet<br>is One Call Away</h2>
+  <p>We offer free, no-obligation quotes. Most jobs are scheduled within the week. Serving Meridian, Boise, Nampa, and the surrounding Treasure Valley.</p>
+  <a href="tel:+12085551234" class="phone-big">(208) 555-1234</a>
+  <div class="cta-actions">
+    <a href="mailto:info@rugratscleaning.com" class="btn-primary">Send an Email</a>
+    <a href="#contact" class="btn-ghost">See Our Location</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Find Us</div>
+      <h2>Come Find Us in Meridian</h2>
+      <div class="contact-block">
+        <div class="label-sm">Address</div>
+        <p>2050 N Astaire Way<br>Meridian, ID 83646</p>
+      </div>
+      <div class="contact-block">
+        <div class="label-sm">Phone</div>
+        <a href="tel:+12085551234">(208) 555-1234</a>
+      </div>
+      <div class="contact-block">
+        <div class="label-sm">Email</div>
+        <a href="mailto:info@rugratscleaning.com">info@rugratscleaning.com</a>
+      </div>
+      <div class="contact-block">
+        <div class="label-sm">Hours</div>
+        <p>Monday – Saturday: 8:00 AM – 6:00 PM<br>Sunday: By Appointment</p>
+      </div>
+      <div class="contact-block">
+        <div class="label-sm">Service Area</div>
+        <p>Meridian · Boise · Nampa · Eagle<br>Caldwell · Kuna · Star · Treasure Valley</p>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.834!2d-116.402!3d43.655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s2050+N+Astaire+Way%2C+Meridian%2C+ID+83646!5e0!3m2!1sen!2sus!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Rug Rats Carpet Cleaning Location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Rug Rats
+      <span>Carpet Cleaning · Meridian, Idaho</span>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Rug Rats Carpet Cleaning · 2050 N Astaire Way, Meridian, ID 83646</p>
+    <p>Crafted with <span class="gold">♥</span> for a family business worth knowing</p>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .review-card, .why-item, .contact-inner > *').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.padding = '14px 60px';
+    } else {
+      nav.style.padding = '22px 60px';
+    }
+  });
+</script>
+</body>
+</html>
